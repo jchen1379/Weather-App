@@ -42,11 +42,11 @@ window.addEventListener('load', () => {
 					
 					// change temperature to Celsius/Farenheit
 					temperatureSection.addEventListener('click', () =>{
-						if(temperatureSpan.textContent === "&deg;F"){
-							temperatureSpan.textContent = "&deg;C";
+						if(temperatureSpan.textContent === "\u00B0F"){
+							temperatureSpan.textContent = "\u00B0C";
 							temperatureDegree.textContent = Math.floor(celsius);
 						}else{
-							temperatureSpan.textContent = "&deg;F";
+							temperatureSpan.textContent = "\u00B0F";
 							temperatureDegree.textContent = Math.floor(temperature);
 						}
 					})
