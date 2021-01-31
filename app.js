@@ -30,7 +30,7 @@ window.addEventListener('load', () => {
 					} = data.currently;
 					
 					// set DOM Elements from the API
-					temperatureDegree.textContent = temperature;
+					temperatureDegree.textContent = Math.floor(temperature);
 					temperatureDescription.textContent = summary;
 					let timezone = data.timezone.replace('_', '\u0020');
 					locationTimeZone.textContent = timezone.replace('/', ', ');
@@ -42,12 +42,12 @@ window.addEventListener('load', () => {
 					
 					// change temperature to Celsius/Farenheit
 					temperatureSection.addEventListener('click', () =>{
-						if(temperatureSpan.textContent === "\u00BAF"){
-							temperatureSpan.textContent = "\u00BAC";
+						if(temperatureSpan.textContent === "&deg;F"){
+							temperatureSpan.textContent = "&deg;C";
 							temperatureDegree.textContent = Math.floor(celsius);
 						}else{
-							temperatureSpan.textContent = "\u00BAF";
-							temperatureDegree.textContent = temperature;
+							temperatureSpan.textContent = "&deg;F";
+							temperatureDegree.textContent = Math.floor(temperature);
 						}
 					})
 				});
