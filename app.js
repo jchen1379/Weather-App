@@ -6,6 +6,14 @@ window.addEventListener('load', () => {
 	let locationTimeZone = document.querySelector('.location-timezone');
 	let temperatureSection = document.querySelector('.temperature');
 	let temperatureSpan = document.querySelector('.temperature span');
+	
+	fetch('https://cors-anywhere.herokuapp.com/https://zipcode-geolocation-api.herokuapp.com/api/zipcode/31322')
+	    .then(res => {
+	        return res.text()
+	    })
+	    .then(data => {
+	        console.log(data)
+	    })
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(position => {
@@ -30,7 +38,7 @@ window.addEventListener('load', () => {
 					} = data.currently;
 					
 					// set DOM Elements from the API
-					temperatureDegree.textContent = Math.floor(temperature);
+					temperatureDegree.textContent = temperature;
 					temperatureDescription.textContent = summary;
 					let timezone = data.timezone.replace('_', '\u0020');
 					locationTimeZone.textContent = timezone.replace('/', ', ');
@@ -42,12 +50,12 @@ window.addEventListener('load', () => {
 					
 					// change temperature to Celsius/Farenheit
 					temperatureSection.addEventListener('click', () =>{
-						if(temperatureSpan.textContent === "\u00B0F"){
-							temperatureSpan.textContent = "\u00B0C";
+						if(temperatureSpan.textContent === "\u00BAF"){
+							temperatureSpan.textContent = "\u00BAC";
 							temperatureDegree.textContent = Math.floor(celsius);
 						}else{
-							temperatureSpan.textContent = "\u00B0F";
-							temperatureDegree.textContent = Math.floor(temperature);
+							temperatureSpan.textContent = "\u00BAF";
+							temperatureDegree.textContent = temperature;
 						}
 					})
 				});
