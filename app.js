@@ -7,14 +7,6 @@ window.addEventListener('load', () => {
 	let temperatureSection = document.querySelector('.temperature');
 	let temperatureSpan = document.querySelector('.temperature span');
 	
-	fetch('https://cors-anywhere.herokuapp.com/https://zipcode-geolocation-api.herokuapp.com/api/zipcode/31322')
-	    .then(res => {
-	        return res.text()
-	    })
-	    .then(data => {
-	        console.log(data)
-	    })
-
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(position => {
 			long = position.coords.longitude;
