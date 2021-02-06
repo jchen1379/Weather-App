@@ -101,21 +101,11 @@ body{
 	transition: 1s;
 }
 
-.contributors{
+.footer{
 	position: absolute;
 	left: 30px;
 	bottom: 30px;
-}
-
-.contributors h2{
-	font-size: 3vmin;
-}
-
-.contributors h5{
-	font-size: 1vmin;
-	margin-top: 1vmin;
-	margin-left: 2vmin;
-	line-height: 1.5vmin;
+	font-size: 2vmin;
 }
 
 @media (max-width: 1200px) {
