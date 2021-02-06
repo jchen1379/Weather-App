@@ -3,6 +3,10 @@
 // For fast response once user start making requests
 fetch("https://zipcode-geolocation-api.herokuapp.com/")
 
+
+// once the page is loaded, there will be two cases
+// case 1: user allows location access: display the weather of current location
+// case 2: user forbids location access: display the weather of default location
 window.addEventListener('load', () => {
 	let long = -118.243683;
 	let lat = 34.052235;
@@ -18,6 +22,7 @@ window.addEventListener('load', () => {
 	let dataFromAPI;
 	let temperatureUnit = ' \u00B0F';
 
+	// if location access is allowed, display current location's weather
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(position => {
 			long = position.coords.longitude;
@@ -26,17 +31,27 @@ window.addEventListener('load', () => {
 		})
 	}
 
+	// call render function to display weather info
 	render(long, lat, null)
 
+	// once the user submit zipcode, look up the location info of that zipcode from database
 	searchBtn.addEventListener('click', () => getZipcodeLocation());
+	
+	// change the temperature display unit when user click on the temperature
 	document.querySelector('.temperature').addEventListener('click', () => updateTemperatureUnit(dataFromAPI));
+	
+	// empty the zipcode previously enter when user click on the input box
 	zipcodeInput.addEventListener('focus', () => errorMessage.textContent = "");
+	
+	// submit the zipcode when user press enter key
 	zipcodeInput.addEventListener("keyup", function(event) {
 		if (event.keyCode === 13) {
 			searchBtn.click();
 		}
 	})
 
+	
+	// responsible for fetching the data from openWeather API
 	function render(long, lat, city) {
 		api =
 			`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=imperial&exclude=minutely,hourly,daily&appid=ecf3bcaacd721741ea58571e6fdda2ea`;
@@ -51,6 +66,7 @@ window.addEventListener('load', () => {
 			})
 	}
 
+	// responsible for rendering the data from openWeather API
 	function renderCurrentWeather(data, city) {
 		const {
 			temp,
@@ -67,6 +83,7 @@ window.addEventListener('load', () => {
 		setIcons(weather[0].icon, weatherIcon);
 	}
 
+	// responsible for fetching data from node.js
 	function getZipcodeLocation() {
 		const zipcode = zipcodeInput.value;
 		api = `https://zipcode-geolocation-api.herokuapp.com/api/zipcode/${zipcode}`
@@ -90,11 +107,14 @@ window.addEventListener('load', () => {
 			})
 	}
 
+
+	// responsible for updating the temperature display unit
 	function updateTemperatureUnit(data) {
 		// change the temperature display unit
 		temperatureUnit === " \u00B0F" ? temperatureUnit = " \u00B0C" : temperatureUnit = " \u00B0F";
 		temperatureDegree.textContent = tempUnitConverter(data.current.temp) + temperatureUnit;
 	}
+
 
 	function tempUnitConverter(temp) {
 		if (temperatureUnit === ' \u00B0F') {
