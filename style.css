@@ -92,8 +92,13 @@ body{
 }
 
 .search-btn:active{
-	background-color: #1d1d1d;
+	background-color: black;
 	transform: scale(1.05);
+}
+
+.search-btn:hover{
+	background-color: dimgray;
+	transition: 1s;
 }
 
 .contributors{
