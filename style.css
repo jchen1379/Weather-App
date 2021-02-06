@@ -5,12 +5,11 @@
 }
 
 body{
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
-	/* justify-content: center; */
 	flex-direction: column;
 	align-items: center;
-	background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+	background: linear-gradient(to right top, #42a1f5, #42f584);
 	font-family: helvetica;
 	color: white;
 }
@@ -25,35 +24,102 @@ body{
 
 .location, 
 .temperature{
-	height: 25vh;
+	height: 20vh;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
 
 .location{
-	margin-top:  5vh;
+	margin-top: 5vh;
 }
 
 .temperature{
 	flex-direction: column;
-}
-
-.degree-section{
-	display: flex;
-	align-items: center;
 	cursor: pointer;
 }
 
-.degree-section span{
-	margin: 3vmin;
-	font-size: 10vmin;
-}
-
-.degree-section h2{
+.temperature-degree{
 	font-size: 10vmin;
 }
 
 .temperature-description{
 	font-size: 3vmin;
+}
+
+.user-input-div{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15vmin;
+}
+
+.input-text{
+	width: 30vmin;
+	height: 8vmin;
+	margin-top: 3vmin;
+	background-color: rgba(255, 222555, 255, .4);
+	border: none;
+	border-radius: 15px;
+	color: white;
+	font-size: 3vmin;
+	text-align: center;
+	outline: none;
+}
+
+.error-message{
+	margin-top: 1vmin;
+	font-size: 2vmin;
+	font-weight: bolder;
+}
+
+.input-text::-webkit-inner-spin-button {
+	display: none;
+}
+
+.search-btn{
+	width: 20vmin;
+	height: 6vmin;
+	margin-top: 4vmin;
+	background-color: #545454;
+	border: none;
+	border-radius: 15px;
+	color: white;
+	font-size: 2vmin;
+	outline: none;
+	cursor: pointer;
+}
+
+.search-btn:active{
+	background-color: #1d1d1d;
+	transform: scale(1.05);
+}
+
+.contributors{
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+}
+
+.contributors h2{
+	font-size: 3vmin;
+}
+
+.contributors h5{
+	font-size: 1vmin;
+	margin-top: 1vmin;
+	margin-left: 2vmin;
+	line-height: 1.5vmin;
+}
+
+@media (max-width: 1200px) {
+	.contributors h2{
+		font-size: 4vmin;
+	}
+	
+	.contributors h5{
+		font-size: 2vmin;
+		line-height: 2.5vmin;
+	}
 }

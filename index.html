@@ -2,26 +2,43 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
 		<script src="app.js" type="text/javascript" charset="utf-8"></script>
 		<script src="skycons.js" type="text/javascript" charset="utf-8"></script>
 		<title>Weather</title>
 	</head>
 	<body>
 		<div class="location">
-			<h1 class="location-timezone">Please allow location<br>access to load Timezone...</h1>
+			<h1 class="location-timezone">New York</h1>
 			<canvas class="icon"></canvas>
 		</div>
 		<div class="temperature">
-			<div class="degree-section">
-				<h2 class="temperature-degree">--.--</h2>
-				<span>&deg;F</span>
-			</div>
+			<h2 class="temperature-degree">30 &deg;F</h2>
 			<div class="temperature-description">
-				Loading weather description...
+				Sunny
 			</div>
 		</div>
+
+		<div class="user-input-div">
+			<div class="input-item">
+				<input type="number" class="input-text" placeholder="ZIPCODE">
+			</div>
+			<div class="input-item">
+				<button class="search-btn"> Search Location </button>
+			</div>
+		</div>
+		<div class="error-message"></div>
+		
+		<div class="contributors">
+		    <h2>Contributors</h2>
+		    <h5>Jianhui Chen <br>
+		        Mohammed Chowdhury <br>
+		        Patricio Tapia <br>
+		        Thierno Bah <br>
+		    </h5>
+		</div>
+
 	</body>
 </html>
