@@ -1,3 +1,8 @@
+// Heroku will set the state of an app to idle if not activity for a while
+// Send the request to backend on heroku to stop idling
+// For fast response once user start making requests
+fetch("https://zipcode-geolocation-api.herokuapp.com/")
+
 window.addEventListener('load', () => {
 	let long = -118.243683;
 	let lat = 34.052235;
